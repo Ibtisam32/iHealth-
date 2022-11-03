@@ -3,4 +3,33 @@
    uuid = "4F95C985-7055-4512-AE0B-08395E662158"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.AddressBreakpoint">
+         <BreakpointContent
+            uuid = "B69D165E-EC5E-415B-BB4A-469A7AF8B05B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = "*0x100f09298">
+            <Locations>
+               <Location
+                  uuid = "B69D165E-EC5E-415B-BB4A-469A7AF8B05B - c857cd71c07ec24a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tabview22.Item.init(name: Swift.String, image: Swift.String, catigory: Swift.String, points: Swift.String, time: Swift.String) -&gt; tabview22.Item"
+                  moduleName = "tabview22"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibtisam/Desktop/tabview22/tabview22/CommunityView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "8">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -7,222 +7,127 @@
 
 import SwiftUI
 
-struct CommunityView: View{
-    var body: some View {
+struct Item: Hashable {
+    var name: String
+    var image: String
+    var catigory: String
+    var points: String
+    var time: String
+}
+
+struct CommunityView: View {
+    
+    //    @State var Community: [String] = ["You","Aldanah Alqabani", "Lina Almesfer","Nesreen Alfifi", "Ibtisam"]
+    @State var items: [Item] = [
+        Item(name: "You", image: "water", catigory:"Catigory: water💧", points: "Points: 5pt🏆", time: "Today at 02:00pm"),
+        Item(name: "Ebtisam", image: "food", catigory:"Catigory: food🍽", points: "Points: 10pt🏆", time: "Today at 2:00pm"),
+        Item(name: "Aldana", image: "food2", catigory:"Catigory: food🍽", points: "Points 10pt🏆", time: "Today at 2:00pm"),
+        Item(name: "Nessreen", image: "gym", catigory:"Catigory: Gym🏋🏻‍♀️", points: "Points: 20pt🏆", time: "Today at 2:00pm"),
+        Item(name: "Lina", image: "gym2", catigory:"Gym🏋🏻‍♀️", points: "20pt🏆", time: "Today at: 2:00pm"),
         
-        ZStack{
-            
-             Color(.white).colorMultiply(/*@START_MENU_TOKEN@*/Color(red: 0.424, green: 0.589, blue: 0.582)/*@END_MENU_TOKEN@*/)
-                .ignoresSafeArea()
-            Image("pic1")
-                .resizable()
-                .frame(width: 400.0, height: 690.0)
-                .position(x:183, y:457)
-                .padding()
-            Text("Community")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundColor(Color.white)
-                .position(x:110, y:80)
-            
-            Button("🏆") {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-            } .font(.title)
-                .position(x:351, y:81)
-            
-                ScrollView(.vertical, showsIndicators: false)
-                {
+    ]
+    
+    var body: some View {
+        NavigationView {
+            ZStack {
+                Color(.white).colorMultiply(/*@START_MENU_TOKEN@*/Color(red: 0.424, green: 0.589, blue: 0.582)/*@END_MENU_TOKEN@*/)
+                    .ignoresSafeArea()
+                
+ 
                     VStack{
-                       
                         
-                        HStack{
+                        HStack (spacing:90){
+                            Text("Community")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.white)
+                                .multilineTextAlignment(.leading)
+                                .padding()
                             
-                            Image("water")
-                                .resizable()
-                                .frame(width: 127.0, height: 128.0)
-                                .font(.caption)
                             
-                            VStack(alignment: .leading)
-                            {
-                                Text("You")
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.pink)
-                                    .padding(5)
-                                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.869, green: 0.356, blue: 0.427)/*@END_MENU_TOKEN@*/)
-                                Text("Category: Water💧")
+                            
+                            NavigationLink {
                                 
-                                    .font(.caption2)
-                                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.424, green: 0.589, blue: 0.582)/*@END_MENU_TOKEN@*/)
+                            } label: {
+                                Image("points")
+                                    
+                                    .resizable()
+                                    .frame(width: 60.0, height: 30.0)
+                                    
+                            }
+                          
                                 
-                                
-                                Text("Points: 5pt 🏆")
-                                    .font(.caption2)
-                                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.424, green: 0.589, blue: 0.582)/*@END_MENU_TOKEN@*/)
-                                
-                                    .padding(2)
-                                
-                                Text("today at 2:00pm")
-                                    .font(.caption2)
-                                    .fontWeight(.thin)
-                                    .foregroundColor(Color.gray)
-                            }; Spacer()
-                        } .padding()
-                            .frame(width: 352.0, height: 168.0)
-                            .border(/*@START_MENU_TOKEN@*/Color.gray/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)
-                    
-                            .cornerRadius(10)
-                            .position(x:190, y:250)
+                        }
                         
-                        HStack{ Image("food")
-                                .resizable()
-                                .frame(width: 127.0, height: 128.0)
-                                .font(.caption)
-                            
-                            VStack(alignment: .leading)
-                            {
-                                Text("Aldana Alqabani")
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.pink)
-                                    .padding(5)
-                                Text("Category: Food 🍽")
-                                
-                                    .font(.caption2)
-                                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.424, green: 0.589, blue: 0.582)/*@END_MENU_TOKEN@*/)
-                                
-                                
-                                Text("Points: 10pt 🏆")
-                                    .font(.caption2)
-                                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.424, green: 0.589, blue: 0.582)/*@END_MENU_TOKEN@*/)
-                                
-                                    .padding(2)
-                                
-                                Text("today at 2:00pm")
-                                    .font(.caption2)
-                                    .fontWeight(.thin)
-                                    .foregroundColor(Color.gray)
-                            }; Spacer()
-                        } .padding()
-                            .frame(width: 352.0, height: 168.0)
-                            .border(/*@START_MENU_TOKEN@*/Color.gray/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)
-                            .cornerRadius(10)
-                            .position(x:190, y:440)
+                        Image("pic4")
+                            .resizable()
+                            .frame(width: 370.0, height: 0.9)
                         
                         
-                        HStack{ Image("food2")
-                                .resizable()
-                                .frame(width: 127.0, height: 128.0)
-                                .font(.caption)
+                        List {
+                            ForEach(items, id: \.self) { item in
+                               
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 10.0)
+                                            .fill(Color(hue: 1.0, saturation: 0.0, brightness: 0.958))
+                                            .frame(height: 150)
+                                        HStack {
+                                            
+                                            Image(item.image)
+                                                .resizable()
+                                                .frame(width: 126.0, height: 126.0)
+                                            VStack(alignment: .leading){
+                                                
+                                                Text(item.name)
+                                                    .fontWeight(.regular)
+                                                    .font(.title)
+                                                
+                                                    .foregroundColor(.pink)
+                                                    
+                                                Text(item.catigory)
+                                                    .font(.headline)
+                                                    .fontWeight(.regular)
+                                                    .foregroundColor(Color(red: 0.424, green: 0.589, blue: 0.582))
+                                                    .lineLimit(0)
+                                                Text(item.points)
+                                                    .fontWeight(.regular)
+                                                    .font(.headline)
+                                                    .foregroundColor(Color(red: 0.424, green: 0.589, blue: 0.582))
+                                                
+                                                Text(item.time)
+                                                    .fontWeight(.light)
+                                                    .foregroundColor(.gray)
+                                                    .font(.footnote)
+                                            } .padding()
+                                            
+                                        }
+                                    }
+                                }
+                                
+                                
+                                
+                                
+                        }
                             
-                            VStack(alignment: .leading)
-                            {
-                                Text("Lina Almsfer")
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.pink)
-                                    .padding(5)
-                                Text("Category: Food 🍽")
-                                
-                                    .font(.caption2)
-                                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.424, green: 0.589, blue: 0.582)/*@END_MENU_TOKEN@*/)
-                                
-                                
-                                Text("Points: 10pt 🏆")
-                                    .font(.caption2)
-                                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.424, green: 0.589, blue: 0.582)/*@END_MENU_TOKEN@*/)
-                                
-                                    .padding(2)
-                                
-                                Text("today at 2:00pm")
-                                    .font(.caption2)
-                                    .fontWeight(.thin)
-                                    .foregroundColor(Color.gray)
-                            }; Spacer()
-                        } .padding()
-                            .frame(width: 352.0, height: 168.0)
-                            .border(/*@START_MENU_TOKEN@*/Color.gray/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)
-                            .cornerRadius(10)
-                            .position(x:190, y:446)
+                        }
                         
-                        HStack{ Image("gym2")
-                                .resizable()
-                                .frame(width: 127.0, height: 128.0)
-                                .font(.caption)
-                            
-                            VStack(alignment: .leading)
-                            {
-                                Text("Nessreen Alfifi")
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.pink)
-                                    .padding(5)
-                                Text("Category: Wourkout 🏋🏻‍♀️")
-                                
-                                    .font(.caption2)
-                                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.424, green: 0.589, blue: 0.582)/*@END_MENU_TOKEN@*/)
-                                
-                                
-                                Text("Points: 20pt 🏆")
-                                    .font(.caption2)
-                                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.424, green: 0.589, blue: 0.582)/*@END_MENU_TOKEN@*/)
-                                
-                                    .padding(2)
-                                
-                                Text("today at 2:00pm")
-                                    .font(.caption2)
-                                    .fontWeight(.thin)
-                                    .foregroundColor(Color.gray)
-                            }; Spacer()
-                        } .padding()
-                            .frame(width: 352.0, height: 168.0)
-                            .border(Color.gray, width: /*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)
-                            .cornerRadius(10)
-                            .position(x:190, y:-95)
                         
-                        HStack{ Image("gym")
-                                .resizable()
-                                .frame(width: 127.0, height: 128.0)
-                                .font(.caption)
-                            
-                            VStack(alignment: .leading)
-                            {
-                                Text("Ibtisam")
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.pink)
-                                    .padding(5)
-                                Text("Category: Wourkout 🏋🏻‍♀️")
-                                
-                                    .font(.caption2)
-                                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.424, green: 0.589, blue: 0.582)/*@END_MENU_TOKEN@*/)
-                                
-                                
-                                Text("Points: 20pt 🏆")
-                                    .font(.caption2)
-                                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.424, green: 0.589, blue: 0.582)/*@END_MENU_TOKEN@*/)
-                                
-                                    .padding(2)
-                                
-                                Text("today at 2:00pm")
-                                    .font(.caption2)
-                                    .fontWeight(.thin)
-                                    .foregroundColor(Color.gray)
-                            }; Spacer()
-                        } .padding()
-                            .frame(width: 352.0, height: 168.0)
-                            .border(Color.gray, width: /*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)
-                            .cornerRadius(10)
-                            .position(x:190, y:275)
+                        
                     }
+                    
                     
                 }
                 
+            }
             
-        }}
-    struct AccountView_Previews: PreviewProvider {
+//            .navigationTitle("Home")
+        }
+    
+
+    
+    
+    struct communityView_Previews: PreviewProvider {
         static var previews: some View {
-            CommunityView()
+             CommunityView()
         }
     }
-}
